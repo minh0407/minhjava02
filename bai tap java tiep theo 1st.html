@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai tap </title>
+</head>
+<body>
+<!--<div class=" container">-->
+<!--    <form action="" method="get">-->
+<!--        <label for="so_tien">ammount:</label><br>-->
+<!--        <input type="text" id="so_tien" name="so_tien"><br>-->
+<!--        <label for="currency">from currency:</label><br>-->
+<!--        <select id="currency" name="currency">-->
+<!--            <option value="USD">USD</option>-->
+<!--            <option value="EUR">EUR</option>-->
+<!--            <option value="vnd">VND</option>-->
+<!--        </select>-->
+<!--        <br><br>-->
+<!--        <label for="to_currency">to currency</label><br>-->
+<!--        <select id="to_currency" name="to_currency">-->
+<!--            <option value="USD">USD</option>-->
+<!--            <option value="EUR">EUR</option>-->
+<!--            <option value="vnd">VND</option>-->
+<!--        </select>-->
+<!--        <br><br>-->
+<!--        <button type="button" onclick="thuchien()"> chuyen doi</button>-->
+<!--    </form>-->
+<!--</div>-->
+<!--<br>-->
+<!--<div id="result"> so tien la: </div>-->
+<!--<script>-->
+<!--    function thuchien(){-->
+<!--        let x = parseInt(document.getElementById("so_tien").value);-->
+<!--        let y = parseInt(document.getElementById("currency").value);-->
+<!--        let z = parseInt(document.getElementById("to_currency").value);-->
+<!--        console.log(x);-->
+<!--        console.log(y);-->
+<!--        console.log(z);-->
+<!--         console.log(usd);-->
+<!--         console.log(eur);-->
+<!--         console.log(vnd);-->
+<!--        let  usd = document.getElementById("USD");-->
+<!--         let eur = document.getElementById("EUR");-->
+<!--         let vnd = document.getElementById("VND");-->
+<!--        if (x>0 , y=usd , z=vnd)-->
+<!--        {-->
+<!--            document.getElementById("result").innerHTML="so tien la: " + x*25 +"dong" ;-->
+<!--        }-->
+<!--         if(x>0 ,y=usd , z=eur)-->
+<!--        {-->
+<!--            document.getElementById("result").innerHTML="so tien la: " + x*25/26 +"dong";-->
+<!--        }-->
+<!--         if(x>0 ,y=vnd , z=usd )-->
+<!--        {-->
+<!--            document.getElementById("result").innerHTML="so tien la: " + x/25 +"dong" ;-->
+<!--        }-->
+<!--          if(x>0 ,y=vnd , z=eur )-->
+<!--        {-->
+<!--            document.getElementById("result").innerHTML="so tien la: "+ x/26 +"dong";-->
+<!--        }-->
+<!--          if(x>0 ,y=eur , z=usd )-->
+<!--        {-->
+<!--            document.getElementById("result").innerHTML="so tien la: " + x*26/25 +"dong" ;-->
+<!--        }-->
+<!--          if(x>0 ,y=eur , z=vnd )-->
+<!--        {-->
+<!--            document.getElementById("result").innerHTML="so tien la: " + x/25 +"dong" ;-->
+<!--        }-->
+<!--          if(x>0 ,y=eur , z=eur )-->
+<!--        {-->
+<!--            document.getElementById("result").innerHTML="so tien la: " + x +"dong" ;-->
+<!--        }-->
+<!--         if(x>0 ,y=vnd , z=vnd )-->
+<!--        {-->
+<!--            document.getElementById("result").innerHTML="so tien la: " + x +"dong" ;-->
+<!--        }-->
+<!--        if (x>0 ,y=usd , z=usd )-->
+<!--        {-->
+<!--            document.getElementById("result").innerHTML="so tien la: " + x +"dong" ;-->
+<!--        }-->
+<!--         else(x<0)-->
+<!--        {-->
+<!--            document.getElementById("result").innerHTML="sai cu phap "  ;-->
+<!--        }-->
+
+<!--    }-->
+<!--</script>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài Tập</title>
+</head>
+<body>
+<div class="container">
+    <form action="" method="get">
+        <label for="so_tien">Amount:</label><br>
+        <input type="text" id="so_tien" name="so_tien"><br>
+
+        <label for="currency">From currency:</label><br>
+        <select id="currency" name="currency">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="VND">VND</option>
+        </select>
+        <br><br>
+
+        <label for="to_currency">To currency:</label><br>
+        <select id="to_currency" name="to_currency">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="VND">VND</option>
+        </select>
+        <br><br>
+
+        <button type="button" onclick="thuchien()">Convert</button>
+    </form>
+</div>
+<br>
+<div id="result">Result: </div>
+
+<script>
+    function thuchien() {
+        // Input
+        let x = parseFloat(document.getElementById("so_tien").value); // amount
+        let fromCurrency = document.getElementById("currency").value; // From currency
+        let toCurrency = document.getElementById("to_currency").value; // To currency
+
+        // Validate input
+        if (isNaN(x) || x <= 0) {
+            document.getElementById("result").innerHTML = "Invalid input. Please enter a positive amount.";
+            return;
+        }
+
+        // Exchange rates (Example: 1 USD = 25,000 VND, 1 EUR = 26,000 VND)
+        const rates = {
+            USD: 1,       // Base currency
+            EUR: 26 / 25, // 1 EUR = 1.04 USD
+            VND: 25000    // 1 USD = 25,000 VND
+        };
+
+        // Conversion Logic
+        let result = (x / rates[fromCurrency]) * rates[toCurrency];
+
+        // Display Result
+        document.getElementById("result").innerHTML = `Result: ${result.toFixed(2)} ${toCurrency}`;
+    }
+</script>
+</body>
+</html>
+
+</body>
+</html>
